@@ -2,7 +2,7 @@
 |-:|-:|-:|-:|:-|
 |1|Electrify office|1|3|Install and connect all lamps, connect eletronic door lock|
 |2|Set air conditioner|1|3|Install air conditioner on the wall and connect it to electric power system|
-|3|Order extension cords|1|1|Order extension cords for all tables in the office
+|3|Order extension cords|1|1|Order extension cords for all tables in the office.|
 |4|Build computers|2|2|Build computers for every table in the office. Computers for hardware engineer and embedded engineer should be the most powerful.|
 |5|Install software|2|2|Install software in office computers. Ask computer owner about list of necessary programs before installation.|
 |6|Connect Internet|2|2|Connect all computers in the office to the web.|
