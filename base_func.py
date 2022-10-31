@@ -123,6 +123,20 @@ def content_check(recs, key):
         case _:
             return False
 #----------------------------------------------------------------------------
+def content_append(recs, key):
+    match key:
+        case 'w':
+            for i in range(len(recs)):
+                append_rec_workers(recs[i])
+        case 'm':
+            for i in range(len(recs)):
+                append_rec_managers(recs[i])
+        case 't':
+            for i in range(len(recs)):
+                append_rec_tasks(recs[i])
+        case _:
+            return False
+#----------------------------------------------------------------------------
 def import_full_base():
     return import_one_table(get_workers_path(), 'w') and import_one_table(get_managers_path(), 'm') and import_one_table(get_tasks_path(), 't')
 #----------------------------------------------------------------------------
@@ -134,7 +148,7 @@ def import_one_table(path, key):
             data = delete_unnec_elements(data)
             if content_check(data, key):  
                 if id_check(data):
-                    #Append data
+                    content_append(data, key)
                     return True
                 else:
                     return False
@@ -146,6 +160,3 @@ def import_one_table(path, key):
         return False
 
 
-print(import_one_table(get_workers_path(), 'w'))
-print(import_one_table(get_managers_path(), 'm'))
-print(import_one_table(get_tasks_path(), 't'))
