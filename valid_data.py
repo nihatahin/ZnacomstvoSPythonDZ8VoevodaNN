@@ -70,7 +70,7 @@ def valid_id(str_data):
     return str_data.isdigit() and (int(str_data) > 0)
 #----------------------------------------------------------------------------
 def valid_name(str_data):
-    str_data = str_data.strip()
+    str_data = str_data.strip().replace('\t', ' ')
     if str_data[0].isupper() or ((str_data[0] == "'") and str_data[1].isupper()):
         if str_data[-1].isalpha() or ((str_data[-1] == "'") and str_data[-2].isalpha()):
             return name_symbol_check(str_data)
@@ -80,7 +80,7 @@ def valid_name(str_data):
         return False
 #----------------------------------------------------------------------------
 def valid_role(str_data):
-    str_data = str_data.strip()
+    str_data = str_data.strip().replace('\t', ' ')
     if str_data[0].isupper():
         if str_data[-1].isalpha() or str_data[-1].isdigit():
             return role_symbol_check(str_data)

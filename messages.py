@@ -1,9 +1,7 @@
 #----------------------------------------------------------------------------
 #----------IMPORTS-----------------------------------------------------------
 #----------------------------------------------------------------------------
-import messages as msg
-from base_func import import_full_base
-import records_access
+
 #----------------------------------------------------------------------------
 #----------VARIABLES---------------------------------------------------------
 #----------------------------------------------------------------------------
@@ -11,9 +9,9 @@ import records_access
 #----------------------------------------------------------------------------
 #----------FUNCTIONS---------------------------------------------------------
 #----------------------------------------------------------------------------
-import_success = import_full_base()
-msg.valid_data_base(import_success)
-#if import success start main menu
-print(records_access.get_rec_workers())
-print(records_access.get_rec_managers())
-print(records_access.get_rec_tasks())
+def valid_data_base(is_valid):
+    if is_valid:
+        print("Data base is succsessfully loaded!")
+    else:
+        print("INVALID data base! Loading process was interrupted!")
+#----------------------------------------------------------------------------
