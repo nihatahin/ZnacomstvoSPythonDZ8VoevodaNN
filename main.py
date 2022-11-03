@@ -3,7 +3,8 @@
 #----------------------------------------------------------------------------
 import messages as msg
 from base_func import import_full_base
-import records_access
+from records_access import get_rec_workers, get_rec_managers
+from auth import auth_logic
 #----------------------------------------------------------------------------
 #----------VARIABLES---------------------------------------------------------
 #----------------------------------------------------------------------------
@@ -13,7 +14,6 @@ import records_access
 #----------------------------------------------------------------------------
 import_success = import_full_base()
 msg.valid_data_base(import_success)
-#if import success start main menu
-print(records_access.get_rec_workers())
-print(records_access.get_rec_managers())
-print(records_access.get_rec_tasks())
+#----------------------------------------------------------------------------
+msg.auth_msg_full(get_rec_workers(), get_rec_managers())
+auth_logic()
