@@ -1,0 +1,13 @@
+Basic commands
+-----------------------------------------------
+|   name      ||  action                      |
+-----------------------------------------------
+|  /info      ||  show information abut me    |
+|  /mytask    ||  show task I've set          |
+|  /staff     ||  show managees list          |
+|  /worker    ||  show concrete worker        |
+|  /taskinfo  ||  show task information       |
+|  /closetask ||  close task                  |
+|  /settask   ||  set task                    |
+|  /return    ||  leave the profile           |
+-----------------------------------------------

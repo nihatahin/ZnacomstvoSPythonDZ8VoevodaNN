@@ -2,6 +2,9 @@
 #----------IMPORTS-----------------------------------------------------------
 #----------------------------------------------------------------------------
 from records_access import get_rec_workers, get_rec_managers, is_in_list, name_and_role_prepare
+from messages import auth_msg_full
+from menu_wrk import wrk_menu
+from menu_mng import mng_menu
 #----------------------------------------------------------------------------
 #----------VARIABLES---------------------------------------------------------
 #----------------------------------------------------------------------------
@@ -28,15 +31,16 @@ def mng_search(name):
 def auth_logic():
     valid = True
     while True:
+        auth_msg_full(get_rec_workers(), get_rec_managers())
         name = enter_nm(valid)
         valid = lambda valid: True if not valid else valid
         cur_id = wrk_search(name)
         if cur_id > 0:
-            print(f"Worker #{cur_id}!")
+            wrk_menu(cur_id)
         else:
             cur_id = mng_search(name)
             if cur_id > 0:
-                print(f"Manager #{cur_id}!")
+                mng_menu(cur_id)
             elif name == '/exit':
                 exit_func()
                 return

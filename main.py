@@ -3,7 +3,6 @@
 #----------------------------------------------------------------------------
 import messages as msg
 from base_func import import_full_base
-from records_access import get_rec_workers, get_rec_managers
 from auth import auth_logic
 #----------------------------------------------------------------------------
 #----------VARIABLES---------------------------------------------------------
@@ -15,5 +14,4 @@ from auth import auth_logic
 import_success = import_full_base()
 msg.valid_data_base(import_success)
 #----------------------------------------------------------------------------
-msg.auth_msg_full(get_rec_workers(), get_rec_managers())
 auth_logic()

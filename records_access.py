@@ -62,3 +62,10 @@ def is_in_list(search_obj, lst_search, column):
             return int(lst_search[i][0])
     else:
         return -1
+#----------------------------------------------------------------------------
+def is_in_list_full(search_obj, lst_search, column):
+    for i in range(len(lst_search)):
+        if lst_search[i][column] == search_obj:
+            return lst_search[i]
+    else:
+        return -1

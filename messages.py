@@ -27,7 +27,7 @@ def max_in_db_sym_num(search_list, column):
     return (max_sym_num // 10 + 1) * 10
 #-----------------------------------------------------------------------------
 def auth_table_board(c1, c2):
-    print('_' * (c1 + c2 + 4))
+    print('-' * (c1 + c2 + 4))
 #----------------------------------------------------------------------------
 def auth_table_hat(c1_width, c2_width):
     print('\nWorkBUG people schedule.')
