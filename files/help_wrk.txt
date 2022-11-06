@@ -1,6 +1,6 @@
 Basic commands
 -----------------------------------------------
-|   name      ||  action                      |
+|   Name      ||  Action                      |
 -----------------------------------------------
 |  /info      ||  show information abut me    |
 |  /mytask    ||  show my task                |

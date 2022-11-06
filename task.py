@@ -2,6 +2,8 @@
 #----------IMPORTS-----------------------------------------------------------
 #----------------------------------------------------------------------------
 from conjoint_menu_func import is_worker_len
+from messages import task_msg_full
+from records_access import get_rec_tasks
 #----------------------------------------------------------------------------
 #----------VARIABLES---------------------------------------------------------
 #----------------------------------------------------------------------------
@@ -9,14 +11,17 @@ from conjoint_menu_func import is_worker_len
 #----------------------------------------------------------------------------
 #----------FUNCTIONS---------------------------------------------------------
 #----------------------------------------------------------------------------
-def print_info(data):
-    is_w = is_worker_len(data)
-    print(f'\nPERSONAL DATA.')
-    print(f'Your name:\t\t\t{data[1]}')
-    print(f"Your personal index:\t\t{'w' if is_w == True else 'm'}{data[0]}")
-    print(f'Role in the company:\t\t{data[2]}')
-    print(f'Work telephone number:\t\t{data[3]}')
-    if is_w:
-        print(f'Your personal characteristics:\t{data[4]}')
-    print()  
+def my_tasks(my_id, col):
+    full_tasks = get_rec_tasks()
+    task_my  = []
+    for i in range(len(full_tasks)):
+        if my_id == full_tasks[i][col]:
+            task_my.append(full_tasks[i])
+    return task_my
+#----------------------------------------------------------------------------
+def personal_task_list(data):
+    col_num = 2 if is_worker_len(data) else 3
+    print(f"\nTask list that {'has been set to you' if col_num == 2 else 'you have set'}.")
+    my_task_list = my_tasks(data[0], col_num)
+    task_msg_full(my_task_list)
 #----------------------------------------------------------------------------

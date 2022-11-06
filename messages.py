@@ -56,3 +56,29 @@ def auth_msg_full(wrk_db, mng_db):
     auth_table_board(cell_1_width, cell_2_width)
     print()
 #----------------------------------------------------------------------------
+def task_table_board(c1, c2):
+    print('-' * (c1 + c2 + 4))
+#----------------------------------------------------------------------------
+def task_table_hat(c1_width, c2_width):
+    task_table_board(c1_width, c2_width)
+    cell_1 = 'Task ID'
+    cell_2 = 'Task name'
+    print('|' + (c1_width - len(cell_1)) * ' ' + cell_1 + '||' + (c2_width - len(cell_2)) * ' ' + cell_2 + '|')
+    task_table_board(c1_width, c2_width)
+#----------------------------------------------------------------------------
+def task_line(c1, c2, t1, t2):
+    print('|' + t1.rjust(c1) + '||' + t2.rjust(c2) + '|')
+#----------------------------------------------------------------------------
+def task_list(c1_width, c2_width, t_data):
+    t_length = len(t_data)
+    for i in range(t_length):
+        task_line(c1_width, c2_width, t_data[i][0], t_data[i][1])
+#----------------------------------------------------------------------------
+def task_msg_full(task_data):
+    cell_1_width = max_in_db_sym_num(task_data, 0)
+    cell_2_width = max_in_db_sym_num(task_data, 1)
+    task_table_hat(cell_1_width, cell_2_width)
+    task_list(cell_1_width, cell_2_width, task_data)
+    task_table_board(cell_1_width, cell_2_width)
+    print()
+#----------------------------------------------------------------------------
