@@ -3,6 +3,7 @@
 #----------------------------------------------------------------------------
 from records_access import get_rec_managers, is_in_list_full
 from conjoint_menu_func import exit_print, welcome_print, file_start_work, enter_cmd
+from info_cmd import print_info
 #----------------------------------------------------------------------------
 #----------VARIABLES---------------------------------------------------------
 #----------------------------------------------------------------------------
@@ -20,16 +21,16 @@ def mng_menu(id):
     manager_data = personal_data_mng(id)
     welcome_print(manager_data[1])
     file_start_work(get_help_path())
-    basement()
+    basement(manager_data)
 #----------------------------------------------------------------------------
-def basement():
+def basement(m_data):
     valid = True
     while True:
         cmd = enter_cmd(valid)
         valid = lambda valid: True if not valid else valid
         match cmd:
             case '/info':
-                print("Info") 
+                print_info(m_data) 
             case '/mytask':
                 print("Tasks")
             case '/staff':

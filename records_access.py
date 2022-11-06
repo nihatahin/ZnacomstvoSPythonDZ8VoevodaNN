@@ -69,3 +69,14 @@ def is_in_list_full(search_obj, lst_search, column):
             return lst_search[i]
     else:
         return -1
+#----------------------------------------------------------------------------
+def get_rec_len(rec_name):
+    match rec_name:
+        case 'wrk':
+            return len(get_rec_workers()[0])
+        case 'mng': 
+            return len(get_rec_managers()[0])
+        case 'tsk':
+            return len(get_rec_tasks()[0])
+        case _:
+            return -1
