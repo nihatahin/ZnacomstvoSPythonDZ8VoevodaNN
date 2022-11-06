@@ -26,6 +26,14 @@ def max_in_db_sym_num(search_list, column):
                 max_sym_num = cur_len
     return (max_sym_num // 10 + 1) * 10
 #-----------------------------------------------------------------------------
+def max_in_sym_num(search_list):
+    max_sym_num = 0
+    for i in range(len(search_list)):
+        cur_len = len(str(search_list[i]))
+        if max_sym_num < cur_len:
+            max_sym_num = cur_len
+    return (max_sym_num // 10 + 1) * 10
+#-----------------------------------------------------------------------------
 def auth_table_board(c1, c2):
     print('-' * (c1 + c2 + 4))
 #----------------------------------------------------------------------------
@@ -56,6 +64,8 @@ def auth_msg_full(wrk_db, mng_db):
     auth_table_board(cell_1_width, cell_2_width)
     print()
 #----------------------------------------------------------------------------
+#----------------------------------------------------------------------------
+#----------------------------------------------------------------------------
 def task_table_board(c1, c2):
     print('-' * (c1 + c2 + 4))
 #----------------------------------------------------------------------------
@@ -75,10 +85,49 @@ def task_list(c1_width, c2_width, t_data):
         task_line(c1_width, c2_width, t_data[i][0], t_data[i][1])
 #----------------------------------------------------------------------------
 def task_msg_full(task_data):
-    cell_1_width = max_in_db_sym_num(task_data, 0)
-    cell_2_width = max_in_db_sym_num(task_data, 1)
-    task_table_hat(cell_1_width, cell_2_width)
-    task_list(cell_1_width, cell_2_width, task_data)
-    task_table_board(cell_1_width, cell_2_width)
+    if len(task_data)  <= 0:
+        print("You have no tasks!")
+    else:
+        cell_1_width = max_in_db_sym_num(task_data, 0)
+        cell_2_width = max_in_db_sym_num(task_data, 1)
+        task_table_hat(cell_1_width, cell_2_width)
+        task_list(cell_1_width, cell_2_width, task_data)
+        task_table_board(cell_1_width, cell_2_width)
+    print()
+#----------------------------------------------------------------------------
+#----------------------------------------------------------------------------
+#----------------------------------------------------------------------------
+def staff_table_board(c1, c2, c3, c4):
+    print('-' * (c1 + c2 + c3 + c4 + 8))
+#----------------------------------------------------------------------------
+def staff_table_hat(c1_width, c2_width, c3_width, c4_width):
+    staff_table_board(c1_width, c2_width, c3_width, c4_width)
+    cell_1 = 'ID'
+    cell_2 = 'Name'
+    cell_3 = 'Role'
+    cell_4 = 'Tasks'
+    print('|' + (c1_width - len(cell_1)) * ' ' + cell_1 + '||' + (c2_width - len(cell_2)) * ' ' + cell_2 + 
+    '||' + (c3_width - len(cell_3)) * ' ' + cell_3 + '||' + (c4_width - len(cell_4)) * ' ' + cell_4 + '|')
+    staff_table_board(c1_width, c2_width, c3_width, c4_width)
+#----------------------------------------------------------------------------
+def staff_line(c1, c2, c3, c4, w1, w2, w3, t):
+    print('|' + w1.rjust(c1) + '||' + w2.rjust(c2) + '||' + w3.rjust(c3) + '||' + t.rjust(c4) + '|')
+#----------------------------------------------------------------------------
+def staff_list(c1_width, c2_width, c3_width, c4_width, w_data, t_data):
+    w_length = len(w_data)
+    for i in range(w_length):
+        staff_line(c1_width, c2_width, c3_width, c4_width, w_data[i][0], w_data[i][1], w_data[i][2], str(t_data[i]))
+#----------------------------------------------------------------------------
+def staff_msg_full(wrk, tsk_cnt):
+    if len(wrk)  <= 0:
+        print("You have no managees!")
+    else:
+        cell_1_width = max_in_db_sym_num(wrk, 0)
+        cell_2_width = max_in_db_sym_num(wrk, 1)
+        cell_3_width = max_in_db_sym_num(wrk, 2)
+        cell_4_width = max_in_sym_num(tsk_cnt)
+        staff_table_hat(cell_1_width, cell_2_width, cell_3_width, cell_4_width)
+        staff_list(cell_1_width, cell_2_width, cell_3_width, cell_4_width, wrk, tsk_cnt)
+        staff_table_board(cell_1_width, cell_2_width, cell_3_width, cell_4_width)
     print()
 #----------------------------------------------------------------------------

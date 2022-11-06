@@ -21,9 +21,9 @@ def exit_print():
 #----------------------------------------------------------------------------
 def enter_cmd(is_valid):
     if is_valid:
-        print('Enter command', end=' ')
+        print('Enter command', end='')
     else:
-        print('Invalid command was entered. Please, Try again', end=' ')
+        print('Invalid command was entered. Please, Try again', end='')
     return input(': ')
 #----------------------------------------------------------------------------
 def is_worker_len(record):
