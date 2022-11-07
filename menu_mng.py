@@ -4,7 +4,7 @@
 from records_access import get_rec_managers, is_in_list_full
 from conjoint_menu_func import exit_print, welcome_print, file_start_work, enter_cmd
 from info_cmd import print_info
-from task import personal_task_list
+from task import personal_task_list, task_info
 from staff import staff_list
 #----------------------------------------------------------------------------
 #----------VARIABLES---------------------------------------------------------
@@ -40,7 +40,7 @@ def basement(m_data):
             case '/worker':
                 print("Worker")
             case '/taskinfo':
-                print("Infotask") 
+                task_info(m_data)
             case '/closetask':
                 print("Close")
             case '/settask':

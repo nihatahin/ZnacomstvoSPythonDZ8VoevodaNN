@@ -29,3 +29,10 @@ def enter_cmd(is_valid):
 def is_worker_len(record):
     return len(record) == get_rec_len('wrk')
 #---------------------------------------------------------------------------
+def enter_tsk(is_valid):
+    if is_valid:
+        print('Enter task ID', end=' ')
+    else:
+        print(f"You haven't got task with this ID. Please, Try again", end=' ')
+    return input('(or ' + "print '/return' + Enter to return to the main menu program" + '): ')
+#----------------------------------------------------------------------------
