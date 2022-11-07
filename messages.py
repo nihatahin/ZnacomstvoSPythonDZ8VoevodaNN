@@ -18,7 +18,7 @@ def valid_data_base(is_valid):
 def max_in_db_sym_num(search_list, column):
     max_sym_num = 0
     for i in range(len(search_list)):
-        if column > (len(search_list) - 1):
+        if column > (len(search_list) + 1):
             return -1
         else:
             cur_len = len(search_list[i][column])

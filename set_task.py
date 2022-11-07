@@ -80,13 +80,4 @@ def enter_task_name(parameter, is_valid):
         print(f"Invalid {parameter}. Please, Try again", end=' ')
     return input('(or ' + "print '/return' + Enter to return to the main menu program" + '): ')
 #----------------------------------------------------------------------------
-from base_func import import_full_base
-from records_access import get_rec_tasks
-import_success = import_full_base()
-set_procedure(2)
-print(get_rec_tasks())
-set_procedure(1)
-print(get_rec_tasks())
-set_procedure(3)
-print(get_rec_tasks())
-from base_func import export_task
+

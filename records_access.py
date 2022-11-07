@@ -80,3 +80,11 @@ def get_rec_len(rec_name):
             return len(get_rec_tasks()[0])
         case _:
             return -1
+#----------------------------------------------------------------------------
+def del_rec_task(i):
+    rec_list_tasks.pop(i)
+#----------------------------------------------------------------------------
+def modify_task(index, col, mean):
+    rec_list_tasks[index] = list(rec_list_tasks[index])
+    rec_list_tasks[index][col] = mean
+    rec_list_tasks[index] = tuple(rec_list_tasks[index])

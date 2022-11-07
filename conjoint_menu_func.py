@@ -42,3 +42,4 @@ def enter_wrk(is_valid):
     else:
         print(f"There isn't such ID in data base. Please, Try again", end=' ')
     return input('(or ' + "print '/return' + Enter to return to the main menu program" + '): ')
+#----------------------------------------------------------------------------
