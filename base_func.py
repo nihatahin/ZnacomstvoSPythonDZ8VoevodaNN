@@ -2,7 +2,7 @@
 #----------IMPORTS-----------------------------------------------------------
 #----------------------------------------------------------------------------
 from valid_data import valid_id, valid_name, valid_role, valid_phone
-from records_access import append_rec_managers, append_rec_tasks, append_rec_workers
+from records_access import append_rec_managers, append_rec_tasks, append_rec_workers, get_rec_tasks
 #----------------------------------------------------------------------------
 #----------VARIABLES---------------------------------------------------------
 #----------------------------------------------------------------------------
@@ -158,5 +158,12 @@ def import_one_table(path, key):
             return False
     else:
         return False
-
-
+#----------------------------------------------------------------------------
+def export_task():
+    with open(get_tasks_path(), 'w', encoding='utf-8') as file:
+        file.write('|task_id|Name|worker_id|manager_id|Description|\n|-:|-:|-:|-:|:-|\n')
+        tasks = get_rec_tasks()
+        for i in range(len(tasks)):
+            for j in range(len(tasks[i])):
+                file.write("|" + str(tasks[i][j]))
+            file.write("|\n")
