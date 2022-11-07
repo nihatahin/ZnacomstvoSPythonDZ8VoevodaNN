@@ -36,3 +36,9 @@ def enter_tsk(is_valid):
         print(f"You haven't got task with this ID. Please, Try again", end=' ')
     return input('(or ' + "print '/return' + Enter to return to the main menu program" + '): ')
 #----------------------------------------------------------------------------
+def enter_wrk(is_valid):
+    if is_valid:
+        print('Enter employee ID', end=' ')
+    else:
+        print(f"There isn't such ID in data base. Please, Try again", end=' ')
+    return input('(or ' + "print '/return' + Enter to return to the main menu program" + '): ')
